@@ -67,7 +67,7 @@ class _StartChatWidgetState extends State<StartChatWidget> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Text(
-                          'Start Chat',
+                          'Start  Chat',
                           style: FlutterFlowTheme.title1.override(
                             fontFamily: 'Poppins',
                             fontSize: 28,
