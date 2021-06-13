@@ -1,7 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'auth/firebase_user_provider.dart';
-import 'package:mi_t_mi_t/login_page/login_page_widget.dart';
+import 'package:mitmit/login_page/login_page_widget.dart';
 import 'flutter_flow/flutter_flow_theme.dart';
 import 'login_page/login_page_widget.dart';
 import 'chat_list/chat_list_widget.dart';
@@ -20,20 +20,20 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  Stream<MiTMiTFirebaseUser> userStream;
-  MiTMiTFirebaseUser initialUser;
+  Stream<MitmitFirebaseUser> userStream;
+  MitmitFirebaseUser initialUser;
 
   @override
   void initState() {
     super.initState();
-    userStream = miTMiTFirebaseUserStream()
+    userStream = mitmitFirebaseUserStream()
       ..listen((user) => initialUser ?? setState(() => initialUser = user));
   }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'MiTMiT',
+      title: 'mitmit',
       theme: ThemeData(primarySwatch: Colors.blue),
       home: initialUser == null
           ? const Center(

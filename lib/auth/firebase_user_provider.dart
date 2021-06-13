@@ -1,17 +1,17 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:rxdart/rxdart.dart';
 
-class MiTMiTFirebaseUser {
-  MiTMiTFirebaseUser(this.user);
+class MitmitFirebaseUser {
+  MitmitFirebaseUser(this.user);
   final User user;
   bool get loggedIn => user != null;
 }
 
-MiTMiTFirebaseUser currentUser;
+MitmitFirebaseUser currentUser;
 bool get loggedIn => currentUser?.loggedIn ?? false;
-Stream<MiTMiTFirebaseUser> miTMiTFirebaseUserStream() => FirebaseAuth.instance
+Stream<MitmitFirebaseUser> mitmitFirebaseUserStream() => FirebaseAuth.instance
     .authStateChanges()
     .debounce((user) => user == null && !loggedIn
         ? TimerStream(true, const Duration(seconds: 1))
         : Stream.value(user))
-    .map<MiTMiTFirebaseUser>((user) => currentUser = MiTMiTFirebaseUser(user));
+    .map<MitmitFirebaseUser>((user) => currentUser = MitmitFirebaseUser(user));
