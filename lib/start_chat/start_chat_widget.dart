@@ -86,7 +86,7 @@ class _StartChatWidgetState extends State<StartChatWidget> {
                           ', Start  A Chat',
                           style: FlutterFlowTheme.title1.override(
                             fontFamily: 'Poppins',
-                            fontSize: 2,
+                            fontSize: 22,
                             fontWeight: FontWeight.w500,
                           ),
                         )
@@ -358,7 +358,7 @@ class _StartChatWidgetState extends State<StartChatWidget> {
                                                 child: Icon(
                                                   Icons.chevron_right_rounded,
                                                   color: Color(0xFF82878C),
-                                                  size: 24,
+                                                  size: 2,
                                                 ),
                                               )
                                             ],
