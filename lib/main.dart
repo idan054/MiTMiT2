@@ -2,9 +2,10 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'auth/firebase_user_provider.dart';
 import 'package:mi_t_mi_t/login_page/login_page_widget.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'flutter_flow/flutter_flow_theme.dart';
-import 'login_page/login_page_widget.dart';
 import 'chat_list/chat_list_widget.dart';
+import 'main_chat/main_chat_widget.dart';
 import 'start_chat/start_chat_widget.dart';
 
 void main() async {
@@ -70,22 +71,14 @@ class _NavBarPageState extends State<NavBarPage> {
   @override
   Widget build(BuildContext context) {
     final tabs = {
-      'LoginPage': LoginPageWidget(),
       'ChatList': ChatListWidget(),
+      'MainChat': MainChatWidget(),
       'StartChat': StartChatWidget(),
     };
     return Scaffold(
       body: tabs[_currentPage],
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.lock,
-              color: Color(0xFF9E9E9E),
-              size: 24,
-            ),
-            label: 'Login',
-          ),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.chat_bubble_outline,
@@ -96,6 +89,13 @@ class _NavBarPageState extends State<NavBarPage> {
               size: 24,
             ),
             label: 'Chats',
+          ),
+          BottomNavigationBarItem(
+            icon: FaIcon(
+              FontAwesomeIcons.medium,
+              size: 24,
+            ),
+            label: 'Main',
           ),
           BottomNavigationBarItem(
             icon: Icon(

@@ -7,6 +7,7 @@ import 'package:latlong/latlong.dart';
 import 'users_record.dart';
 import 'chats_record.dart';
 import 'chat_messages_record.dart';
+import 'main_chat_record.dart';
 
 part 'serializers.g.dart';
 
@@ -16,6 +17,7 @@ const kDocumentReferenceField = 'Document__Reference__Field';
   UsersRecord,
   ChatsRecord,
   ChatMessagesRecord,
+  MainChatRecord,
 ])
 final Serializers serializers = (_$serializers.toBuilder()
       ..add(DocumentReferenceSerializer())

@@ -1,7 +1,9 @@
+import '../auth/auth_util.dart';
 import '../backend/backend.dart';
 import '../chat_page/chat_page_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
+import '../login_page/login_page_widget.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -34,13 +36,19 @@ class _StartChatWidgetState extends State<StartChatWidget> {
       key: scaffoldKey,
       backgroundColor: Color(0xFFF1F4F8),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          print('FloatingActionButton pressed ...');
+        onPressed: () async {
+          await signOut();
+          await Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => LoginPageWidget(),
+            ),
+          );
         },
         backgroundColor: Color(0xFF8734E0),
         elevation: 8,
         child: Icon(
-          Icons.add,
+          Icons.exit_to_app,
           color: FlutterFlowTheme.tertiaryColor,
           size: 28,
         ),
@@ -67,10 +75,18 @@ class _StartChatWidgetState extends State<StartChatWidget> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Text(
-                          'Start  A Chat',
+                          currentUserDisplayName,
                           style: FlutterFlowTheme.title1.override(
                             fontFamily: 'Poppins',
-                            fontSize: 28,
+                            fontSize: 22,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                        Text(
+                          ', Start  A Chat',
+                          style: FlutterFlowTheme.title1.override(
+                            fontFamily: 'Poppins',
+                            fontSize: 2,
                             fontWeight: FontWeight.w500,
                           ),
                         )
