@@ -44,8 +44,9 @@ class _MainChatWidgetState extends State<MainChatWidget> {
             padding: EdgeInsets.fromLTRB(0, 0, 20, 0),
             child: InkWell(
               onTap: () async {
-                await pageViewController.nextPage(
-                  duration: Duration(milliseconds: 300),
+                await pageViewController.animateToPage(
+                  0,
+                  duration: Duration(milliseconds: 500),
                   curve: Curves.ease,
                 );
               },
@@ -88,7 +89,6 @@ class _MainChatWidgetState extends State<MainChatWidget> {
                     stream: queryMainChatRecord(
                       queryBuilder: (mainChatRecord) =>
                           mainChatRecord.orderBy('timestamp', descending: true),
-                      limit: 2,
                     ),
                     builder: (context, snapshot) {
                       // Customize what your widget looks like when it's loading.
@@ -102,7 +102,7 @@ class _MainChatWidgetState extends State<MainChatWidget> {
                         // return Container();
                         // For now, we'll just include some dummy data.
                         listViewMainChatRecordList =
-                            createDummyMainChatRecord(count: 2);
+                            createDummyMainChatRecord(count: 4);
                       }
                       return Padding(
                         padding: EdgeInsets.fromLTRB(0, 0, 0, 20),
@@ -198,6 +198,8 @@ class _MainChatWidgetState extends State<MainChatWidget> {
                                                         child: Text(
                                                           listViewMainChatRecord
                                                               .text,
+                                                          textAlign:
+                                                              TextAlign.end,
                                                           style:
                                                               FlutterFlowTheme
                                                                   .bodyText2
@@ -221,7 +223,7 @@ class _MainChatWidgetState extends State<MainChatWidget> {
                                                       Padding(
                                                         padding:
                                                             EdgeInsets.fromLTRB(
-                                                                0, 0, 5, 2),
+                                                                0, 0, 5, 0),
                                                         child: Icon(
                                                           Icons.schedule,
                                                           color:
