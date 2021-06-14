@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.flutterflow.mitmit">
+    package="com.biton.bubbleflow">
    <uses-permission android:name="android.permission.INTERNET"/>
    <application
         android:label="mitmit"

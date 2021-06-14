@@ -1,4 +1,4 @@
-package com.flutterflow.mitmit
+package com.biton.bubbleflow
 
 import io.flutter.embedding.android.FlutterActivity
 
