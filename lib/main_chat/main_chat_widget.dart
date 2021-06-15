@@ -404,6 +404,13 @@ class _MainChatWidgetState extends State<MainChatWidget> {
                               duration: Duration(milliseconds: 500),
                               curve: Curves.ease,
                             );
+                            final lastMainChatMessageTime = getCurrentTimestamp;
+
+                            final usersRecordData = createUsersRecordData(
+                              lastMainChatMessageTime: lastMainChatMessageTime,
+                            );
+
+                            await currentUserReference.update(usersRecordData);
                           },
                           icon: Icon(
                             Icons.send,
@@ -415,13 +422,7 @@ class _MainChatWidgetState extends State<MainChatWidget> {
                       ],
                     ),
                   ),
-                  Container(
-                    width: 100,
-                    height: 20,
-                    decoration: BoxDecoration(
-                      color: Color(0xFFEEEEEE),
-                    ),
-                  )
+                  Container()
                 ],
               ),
             ),

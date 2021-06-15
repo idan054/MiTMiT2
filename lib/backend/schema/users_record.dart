@@ -35,6 +35,10 @@ abstract class UsersRecord implements Built<UsersRecord, UsersRecordBuilder> {
   String get phoneNumber;
 
   @nullable
+  @BuiltValueField(wireName: 'last_main_chat_message_time')
+  DateTime get lastMainChatMessageTime;
+
+  @nullable
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference get reference;
 
@@ -64,6 +68,7 @@ Map<String, dynamic> createUsersRecordData({
   String uid,
   DateTime createdTime,
   String phoneNumber,
+  DateTime lastMainChatMessageTime,
 }) =>
     serializers.toFirestore(
         UsersRecord.serializer,
@@ -73,7 +78,8 @@ Map<String, dynamic> createUsersRecordData({
           ..photoUrl = photoUrl
           ..uid = uid
           ..createdTime = createdTime
-          ..phoneNumber = phoneNumber));
+          ..phoneNumber = phoneNumber
+          ..lastMainChatMessageTime = lastMainChatMessageTime));
 
 UsersRecord get dummyUsersRecord {
   final builder = UsersRecordBuilder()
@@ -82,7 +88,8 @@ UsersRecord get dummyUsersRecord {
     ..photoUrl = dummyImagePath
     ..uid = dummyString
     ..createdTime = dummyTimestamp
-    ..phoneNumber = dummyString;
+    ..phoneNumber = dummyString
+    ..lastMainChatMessageTime = dummyTimestamp;
   return builder.build();
 }
 
